@@ -117,4 +117,55 @@ for (int square : squareNumbers) {
 }
 // Prints exactly the same as the previous example.
 
+******************************************
+Array Capacity VS Length
+******************************************
+Array Capacity
+=========================
+Let's say we've created a new Array like this.
+
+DVD[] array = new DVD[6]
+Is it a valid operation to insert an element at array[6]? What about at array[10]?
+
+Nope, neither of these are valid. When we created the Array, we specified that it can hold up to 6 DVD's. This is the Array's capacity.
+
+Remembering that indexing starts at 0, we can only insert items at array[0], array[1], array[2], array[3], array[4], and array[5].
+Trying to put an element anywhere else, such as array[-3], array[6], or array[100] will cause your code to crash with an ArrayIndexOutOfBoundsException!
+
+The Array's capacity must be decided when the Array is created. The capacity cannot be changed later. 
+
+The capacity of an Array in Java can be checked by looking at the value of its length attribute. 
+This is done using the code arr.length, where arr is the name of the Array. 
+Different programming languages have different ways of checking the length of an Array.
+
+int capacity = array.length;
+System.out.println("The Array has a capacity of " + capacity);
+
+==========================
+Array Length
+==========================
+The other definition of length is the number of DVDs, or other items, currently in the Array. This is something you'll need to keep track of yourself, 
+and you won't get any errors if you overwrite an existing DVD, or if you leave a gap in the Array.
+
+// Create a new array with a capacity of 6.
+int[] array = new int[6];
+
+// Current length is 0, because it has 0 elements.
+int length = 0;
+
+// Add 3 items into it.
+for (int i = 0; i < 3; i++) {
+    array[i] = i * i;
+    // Each time we add an element, the length goes up by one.
+    length++;
+}
+
+System.out.println("The Array has a capacity of " + array.length);
+System.out.println("The Array has a length of " + length);
+
+
+================================
+Handling Array Parameters
+===============================
+Most Array questions on LeetCode have an Array passed in as a parameter, with no "length" or "capacity" parameter.
 
